@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "_note": "Every 'file' is relative to this folder, so it works from http://, Capacitor's local server, or file:// inside an Android WebView. Mix values are starting points chosen from measurements, not by ear - tune by listening.",
+
+  "buses": {
+    "music":    { "volume": 0.60 },
+    "ambience": { "volume": 0.55 },
+    "sfx":      { "volume": 0.90 },
+    "ui":       { "volume": 0.80 }
+  },
+
+  "sounds": {
+    "amb_exploration":  { "file": "ambience/amb_exploration.ogg", "bus": "ambience", "loop": true, "volume": 0.90 },
+    "amb_dread":        { "file": "ambience/amb_dread.ogg",       "bus": "ambience", "loop": true, "volume": 0.90 },
+    "music_boss":       { "file": "music/music_boss.ogg",         "bus": "music",    "loop": true, "volume": 0.85 },
+
+    "sfx_boss_rumble":  { "file": "sfx/sfx_boss_rumble.ogg", "bus": "sfx", "volume": 0.70, "maxVoices": 1, "cooldownMs": 1000 },
+
+    "sfx_impact_major": { "file": "stingers/sfx_impact_major.ogg",  "bus": "sfx", "volume": 0.90, "maxVoices": 1, "cooldownMs": 400,
+                          "duck": { "amount": 0.45, "ms": 1400 } },
+    "sfx_boss_phase":   { "file": "stingers/sfx_boss_phase.ogg",    "bus": "sfx", "volume": 0.90, "maxVoices": 1, "cooldownMs": 600,
+                          "duck": { "amount": 0.40, "ms": 1800 } },
+    "sfx_boss_transform": { "file": "stingers/sfx_boss_transform.ogg", "bus": "sfx", "volume": 0.85, "maxVoices": 1, "cooldownMs": 600,
+                          "duck": { "amount": 0.40, "ms": 2000 } },
+    "sfx_boss_defeat":  { "file": "stingers/sfx_boss_defeat.ogg",   "bus": "sfx", "volume": 0.90, "maxVoices": 1, "cooldownMs": 600,
+                          "duck": { "amount": 0.30, "ms": 2600 } },
+    "sfx_player_death": { "file": "stingers/sfx_player_death.ogg",  "bus": "sfx", "volume": 0.90, "maxVoices": 1, "cooldownMs": 600,
+                          "duck": { "amount": 0.25, "ms": 2000 } },
+
+    "sfx_telegraph_knight":    { "file": "sfx/sfx_telegraph_knight.ogg",    "bus": "sfx", "volume": 1.00, "maxVoices": 1, "cooldownMs": 120 },
+    "sfx_telegraph_wraith":    { "file": "sfx/sfx_telegraph_wraith.ogg",    "bus": "sfx", "volume": 1.00, "maxVoices": 1, "cooldownMs": 120 },
+    "sfx_telegraph_sovereign": { "file": "sfx/sfx_telegraph_sovereign.ogg", "bus": "sfx", "volume": 1.00, "maxVoices": 1, "cooldownMs": 120 },
+
+    "sfx_hit_sword":    { "file": "sfx/sfx_hit_sword.ogg",   "bus": "sfx", "volume": 0.80, "rateJitter": 0.06, "maxVoices": 3, "cooldownMs": 50 },
+    "sfx_shadow_cast":  { "file": "sfx/sfx_shadow_cast.ogg", "bus": "sfx", "volume": 0.85, "rate": 0.70, "rateJitter": 0.03, "maxVoices": 2, "cooldownMs": 150 },
+    "sfx_explosion":    { "file": "sfx/sfx_explosion.ogg",   "bus": "sfx", "volume": 0.80, "rateJitter": 0.04, "maxVoices": 2, "cooldownMs": 120 },
+    "sfx_heal":         { "file": "sfx/sfx_heal.ogg",        "bus": "sfx", "volume": 0.70, "maxVoices": 1, "cooldownMs": 500 },
+    "sfx_gate_open":    { "file": "sfx/sfx_gate_open.ogg",   "bus": "sfx", "volume": 0.80, "maxVoices": 1, "cooldownMs": 300 },
+
+    "ui_confirm":       { "file": "ui/ui_confirm.ogg",    "bus": "ui", "volume": 0.80, "maxVoices": 2, "cooldownMs": 60 },
+    "ui_checkpoint":    { "file": "ui/ui_checkpoint.ogg", "bus": "ui", "volume": 0.85, "maxVoices": 1, "cooldownMs": 500 },
+    "sfx_victory":      { "file": "ui/sfx_victory.ogg",   "bus": "ui", "volume": 0.90, "maxVoices": 1, "cooldownMs": 1000 },
+
+    "ui_move":          { "alias": "ui_confirm", "volume": 0.35, "rate": 1.60, "maxVoices": 1, "cooldownMs": 40 }
+  },
+
+  "groups": {
+    "core":    ["sfx_impact_major", "sfx_boss_phase", "sfx_boss_transform", "sfx_boss_defeat", "sfx_player_death",
+                "sfx_telegraph_knight", "sfx_telegraph_wraith", "sfx_telegraph_sovereign",
+                "sfx_hit_sword", "sfx_shadow_cast", "sfx_explosion", "sfx_heal", "sfx_gate_open",
+                "ui_confirm", "ui_checkpoint", "sfx_victory"],
+    "explore": ["amb_exploration"],
+    "boss":    ["music_boss", "amb_dread", "sfx_boss_rumble"]
+  },
+
+  "areas": {
+    "main_menu":          "amb_exploration",
+    "castle_exploration": "amb_exploration",
+    "hollow_knight_hall": "amb_exploration",
+    "abyssal_chamber":    "amb_dread",
+    "throne_room":        "amb_dread"
+  },
+
+  "bossCues": {
+    "hollow_knight": {
+      "spawn":     [ { "sound": "sfx_boss_rumble" } ],
+      "telegraph": [ { "sound": "sfx_telegraph_knight" } ],
+      "phase":     [ { "sound": "sfx_boss_phase" } ],
+      "defeat":    [ { "sound": "sfx_boss_defeat", "rate": 0.90 }, { "sound": "sfx_explosion", "delay": 0.15, "volume": 0.6 } ]
+    },
+    "abyssal_wraith": {
+      "spawn":     [ { "sound": "sfx_boss_rumble", "rate": 0.85 } ],
+      "telegraph": [ { "sound": "sfx_telegraph_wraith" } ],
+      "phase":     [ { "sound": "sfx_boss_transform" } ],
+      "defeat":    [ { "sound": "sfx_boss_defeat", "rate": 1.12 } ]
+    },
+    "fallen_sovereign": {
+      "spawn":     [ { "sound": "sfx_boss_rumble", "rate": 0.70 }, { "sound": "sfx_impact_major", "delay": 0.6, "volume": 0.7 } ],
+      "telegraph": [ { "sound": "sfx_telegraph_sovereign" } ],
+      "phase":     [ { "sound": "sfx_boss_transform", "rate": 0.85 }, { "sound": "sfx_impact_major", "delay": 0.25 } ],
+      "defeat":    [ { "sound": "sfx_boss_defeat", "rate": 0.80 }, { "sound": "sfx_impact_major", "delay": 0.3 }, { "sound": "sfx_explosion", "delay": 0.5, "rate": 0.8 } ]
+    }
+  },
+
+  "notSupplied": [
+    "wind", "distant thunder", "footsteps", "monster growls / voices", "player hurt voice",
+    "dedicated menu-navigation tick (ui_move is ui_confirm sped up and quietened)"
+  ]
+}

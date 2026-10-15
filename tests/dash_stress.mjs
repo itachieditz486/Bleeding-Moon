@@ -1,0 +1,4 @@
+import { launch } from './drive.mjs';
+const A = await launch(); await A.ev(() => window.__bm.app.startRun()); await A.step(20);
+const r = await A.ev(async () => { const app = window.__bm.app, sc = app.scene, I = app.input; const fails = []; for (let n = 0; n < 300; n++) { const P = sc.player; sc.loadStage(0, 300, { fullHeal: true }); const pre = Math.floor(Math.random() * 30); if (n % 3 === 0) P.hurt(1, P.x + 5); for (let i = 0; i < 5 + pre; i++) app.tick(1/60); const hp0 = P.hp; I.setVirtual('dash', 'd', true); app.tick(1/60); I.setVirtual('dash', 'd', false); app.tick(1/60); const hit = P.hurt(1, P.x + 5); if (hit) fails.push({ n, pre, st: P.state, stun: P.stun, cd: P.dashCd, g: P.onGround, ifr: P.iframes }); } return fails.slice(0, 6).concat([fails.length]); });
+console.log(JSON.stringify(r)); await A.b.close();

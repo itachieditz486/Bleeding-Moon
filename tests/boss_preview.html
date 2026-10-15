@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><title>boss preview</title>
+<body style="margin:0;background:#2a2740"><canvas id="cv" style="image-rendering:pixelated"></canvas>
+<script type="module">
+import { bossFrame, BOSS_POSES } from '../src/art/bosses_art.js';
+import { drawFrame } from '../src/art/sprites.js';
+import { drawText } from '../src/core/font.js';
+const cv = document.getElementById('cv'); cv.width = 600; cv.height = 900; const g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+g.fillStyle = '#2a2740'; g.fillRect(0, 0, 600, 880);
+let y = 0;
+for (const [id, cell, form] of [['hollow_knight', 92, 1], ['abyssal_wraith', 100, 1], ['fallen_sovereign', 160, 1], ['fallen_sovereign', 160, 2]]) {
+  drawText(g, id + (form === 2 ? ' FORM 2' : ''), 2, y + 2, '#fff', { shadow: null });
+  const poses = BOSS_POSES(id); let x = 6, ry = y + 12, rowH = cell;
+  for (const p of poses) {
+    const f = bossFrame(id, p, 0.4, form === 2 ? { form: 2 } : undefined);
+    if (x + f.w > 600) { x = 6; ry += rowH; }
+    drawFrame(g, f, x + f.ax, ry + (cell - 12 > f.ay ? f.ay : f.ay) - (f.h - cell > 0 ? 0 : 0) + 0, false);
+    drawText(g, p, x, ry + f.h - 2, '#cbbfdc', { shadow: null });
+    x += f.w + 4;
+  }
+  y = ry + rowH + 6;
+}
+cv.style.width = '1200px'; window.done = true;
+</script>

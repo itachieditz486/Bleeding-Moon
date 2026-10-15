@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.bleedingmoon",
+  "appName": "Bleeding Moon",
+  "webDir": "www",
+  "backgroundColor": "#07050d",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}

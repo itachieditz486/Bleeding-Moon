@@ -1,0 +1,17 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>audio smoke test</title>
+<body style="background:#111;color:#ccc;font:14px monospace">
+<p>AudioManager smoke test page - driven by tests/run_audio_tests.mjs. Click anywhere to unlock audio.</p>
+<script type="module">
+  import AudioManager from '../src/audio/AudioManager.js';
+  window.AudioManager = AudioManager;
+  window.ready = (async () => {
+    const audio = new AudioManager({ manifestUrl: '../assets/audio/audio-manifest.json' });
+    await audio.init();
+    audio.unlockOnGesture();
+    window.audio = audio;
+    return true;
+  })().catch(e => { window.initError = String(e); return false; });
+</script>
+</body>

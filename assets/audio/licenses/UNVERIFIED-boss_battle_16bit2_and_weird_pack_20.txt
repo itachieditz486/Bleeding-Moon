@@ -1,0 +1,13 @@
+NO LICENSE INFORMATION WAS SUPPLIED WITH THESE TWO FILES
+========================================================
+  boss_battle_16bit2.mp3   (used as music/music_boss.ogg)
+  weird_pack_20.wav        (used as sfx/sfx_boss_rumble.ogg)
+
+Their only embedded metadata is the encoder tag "FL Studio 2024". There is no author,
+title, license or source in the files or in the upload. Nothing here has been verified.
+
+Before shipping or publishing the game, confirm that you own these files or hold a
+licence that allows redistribution inside a game, then replace this note with the
+real license text and author credit. If you cannot, delete the two files and the
+"music_boss" / "sfx_boss_rumble" entries from audio-manifest.json (the game keeps
+working: missing sounds are silent no-ops).

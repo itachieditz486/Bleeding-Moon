@@ -1,0 +1,217 @@
+{
+ "when": "2026-10-15T09:26:07.184Z",
+ "pass": 42,
+ "total": 42,
+ "results": [
+  {
+   "name": "boots with no page errors and shows title",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Continue disabled with no save",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "New Game with no save goes to intro, Enter skips to play",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "auto-save written on new game (valid checkpoint)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "walk right moves player and keeps them on the ground",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "run speed exceeds walk speed after sustained input",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "jump rises then lands; variable height (short tap < held)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "cannot walk through the left world edge / barriers",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "one-way platform: can jump up through and stand on it",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "attack hits an enemy exactly once per swing (no multi-hit within a window)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "three-hit combo chain exists and each swing can hit again",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "killing an enemy awards energy and removes it",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "special costs 30 energy, fires a piercing wave, needs energy",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "enemy melee damages player once, applies knockback + i-frames",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "dash grants invulnerability frames",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "hit-stop and screen-shake fire on a landed hit",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "player death -> \"YOU DIED\" flow -> respawn at checkpoint with full HP",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "falling into a pit costs 1 HP and recovers on safe ground",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "ghoul notices, chases and telegraphs before striking (>=0.4 s warning)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "wisp homes in and can be killed",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "shrine activates once: full heal + energy, writes save, shows toast",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "death after shrine respawns at the shrine (not the start)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Continue loads the saved checkpoint after returning to title",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "defeated bosses persist: reloading the hall shows the boss as defeated and gate open",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "corrupt / tampered saves are rejected (Continue disabled, no crash)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "New Game with an existing save asks for confirmation; NO keeps save, YES erases",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "valid save: Continue enabled and resumes in the right stage",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "stage exit transitions to the next stage (approach -> hall)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "boss arena: walls close at trigger, boss spawns, boss music requested, gate blocks exit until defeat",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "every boss telegraph is >= 0.45 s (fairness floor) and has >= 3 distinct attacks",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "final boss defeat -> victory screen -> Play Again starts a fresh run",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Esc pauses (world frozen), Esc again resumes",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "pause menu: Resume, Restart Checkpoint, Settings, Controls, Main Menu all work",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "settings: master/music/sfx volume, mute persist to storage and apply to audio graph",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "audio engine ready with 16 core + explore buffers decoded offline (no network fetch of external hosts)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "boss audio: enterBoss starts boss loop group, exitBoss restores ambience",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "touch overlay visible in play on a touch device, hidden on title",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "tapping the canvas menu items works (pointer -> UI)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "integer pixel scaling and aspect: canvas CSS size is an exact multiple of internal size",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "performance: update+draw during a boss fight with heavy FX averages < 8 ms/frame, p99 < 25 ms (software-rendered headless Chromium)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "particle cap and auto quality reduction exist (low-end mode)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no unexpected console errors/warnings during the whole run",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

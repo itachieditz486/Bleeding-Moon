@@ -1,0 +1,157 @@
+{
+ "when": "2026-10-15T09:25:05.247Z",
+ "pass": 30,
+ "total": 30,
+ "results": [
+  {
+   "name": "five buttons present with correct labels; overlay visible in play",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "layout: buttons do not overlap each other, the HUD, or the boss-bar zone; all hit areas >= 44 px",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "stick: hold right moves right; reversing direction flips; release stops (decelerates to 0)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "simultaneous: stick held + ATK + JUMP + DASH + SHADOW all register together, then release independently",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "each button triggers its action: ATK swings, JUMP jumps, DASH dashes, SHADOW fires a wave",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "release safety: pointercancel, release outside the element, lost capture, window blur all clear the control",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "a second finger cannot steal the stick; sliding a finger off a button does not press its neighbour",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no duplicate actions: click / mouse / touch events on a button do not press it (pointer events only)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "page cannot scroll/zoom during play: touch-action none, touchmove default prevented, viewport locks zoom",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "safe-area insets are used in the layout (env(safe-area-inset-*)) and viewport-fit=cover is set",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "settings: control opacity + button size change the overlay and persist across reload",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "touch show/hide setting: ON shows on desktop-like pointer, OFF hides it in play",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "touch overlay hidden while paused and in menus; pause button opens the pause menu; resume restores it",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "Esc pauses and the world is frozen (scene time and entities do not advance in real time either)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "pause menu shows MAIN MENU, RESUME, RESTART CHECKPOINT, SETTINGS, CONTROLS; keyboard navigation works",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "RESTART CHECKPOINT: returns to the checkpoint with full HP, unpauses, clears hazards",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "MAIN MENU: saves progress, returns to the title, stops boss music + wind, Continue restores the checkpoint + defeated bosses",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no duplicate game loops / listeners after 5 play <-> main-menu round trips (tick rate stays ~60/s)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "after returning to the main menu nothing from gameplay runs and the menu responds (keyboard + pointer)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "every menu option responds; BACK exists in every submenu and returns to the right screen",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "direction change: reversing from a run to the opposite walk speed is faster than plain friction (no slippery turn)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "stopping: releasing the stick decelerates to a full stop within ~0.15 s (no sliding)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "input buffering: ATK pressed 3 frames before the previous swing ends is executed (combo chains without dropping inputs)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "input buffering: DASH pressed just before the dash cooldown ends / during recovery still fires",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "jump can cancel sword RECOVERY but never the hit window",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "landing: onGround is reliable on repeated jumps (100 jumps, no stuck/falling-through state)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "camera: no abrupt jumps (max per-frame camera delta <= 6 px) while running, turning and dashing",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "rendering stays pixel-crisp: canvas smoothing off, image-rendering pixelated, integer canvas size",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "difficulty unchanged: boss telegraph floor, player hp/energy/dash numbers and boss HP are the same as 0.1.1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "no unexpected console errors/warnings during this run",
+   "ok": true,
+   "detail": ""
+  }
+ ]
+}

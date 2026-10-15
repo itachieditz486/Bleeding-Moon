@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><title>bg preview</title>
+<body style="margin:0;background:#000"><canvas id="cv" style="image-rendering:pixelated"></canvas>
+<script type="module">
+import { buildTheme, drawTheme, drawFog } from '../src/art/backgrounds.js';
+const cv = document.getElementById('cv'); cv.width = 400; cv.height = 180 * 5; const g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+['approach', 'hall', 'corridor', 'chamber', 'throne'].forEach((n, i) => { const T = buildTheme(n); g.save(); g.translate(0, i * 180); g.beginPath(); g.rect(0, 0, 400, 180); g.clip(); drawTheme(g, T, 120, 3, 400); drawFog(g, T, 120, 3, 400); g.restore(); });
+cv.style.width = '1200px'; window.done = true;
+</script>

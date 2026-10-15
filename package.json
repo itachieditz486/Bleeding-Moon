@@ -1,0 +1,19 @@
+{
+  "name": "bleeding-moon",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Bleeding Moon - dark-fantasy pixel-art action game (HTML5 canvas) with a Capacitor Android wrapper",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "build:single": "node tools/bundle.mjs",
+    "build:www": "node tools/prepare_www.mjs",
+    "android:add": "npx cap add android && python3 tools/patch_android.py",
+    "android:sync": "npm run build:www && npx cap sync android",
+    "android:apk": "cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "~6.1.0",
+    "@capacitor/cli": "~6.1.0",
+    "@capacitor/core": "~6.1.0"
+  }
+}

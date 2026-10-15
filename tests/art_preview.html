@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>art preview</title>
+<body style="margin:0;background:#2a2740"><canvas id="cv" style="image-rendering:pixelated"></canvas>
+<script type="module">
+import { buildSprites, drawFrame } from '../src/art/sprites.js';
+import { drawText } from '../src/core/font.js';
+const S = buildSprites(), cv = document.getElementById('cv');
+const entries = [];
+for (const [name, frames] of Object.entries(S.player)) entries.push(['player.' + name, frames]);
+entries.push(['slash.a', S.slash.a], ['slash.b', S.slash.b], ['ghoul.walk', S.enemy.ghoul.walk], ['ghoul.attack', S.enemy.ghoul.attack], ['wisp', S.enemy.wisp.fly]);
+cv.width = 380; cv.height = entries.length * 40 + 60; const g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+g.fillStyle = '#2a2740'; g.fillRect(0, 0, cv.width, cv.height);
+entries.forEach(([n, fr], row) => { drawText(g, n, 2, row * 40 + 2, '#fff', { shadow: null }); fr.forEach((f, i) => drawFrame(g, f, 90 + i * 36 + f.ax / 2, row * 40 + 38 - (f.h - f.ay) / 2 - 1 + (f.h > 30 ? 0 : 0))); });
+const y = entries.length * 40 + 4; drawText(g, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789', 2, y, '#fff'); drawText(g, "!?.,:-+/[]%'<>=", 2, y + 10, '#fff');
+g.drawImage(S.icons.heartFull, 2, y + 24); g.drawImage(S.icons.heartEmpty, 14, y + 24); g.drawImage(S.icons.heartHurt, 26, y + 24); g.drawImage(S.icons.spark, 40, y + 24);
+cv.style.width = cv.width * 3 + 'px'; window.done = true;
+</script>
